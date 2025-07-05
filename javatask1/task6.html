@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background-color: #f2f6ff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #357bd8;
+    }
+
+    #output {
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Random Array & Pick First andLast Element</h2>
+    <button onclick="generateAndShow()">Generate Array & Show First/Last</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    function generateRandomArray(length = 6, min = 1, max = 100) {
+      const arr = [];
+      for (let i = 0; i < length; i++) {
+        arr.push(Math.floor(Math.random() * (max - min + 1)) + min);
+      }
+      return arr;
+    }
+
+    function generateAndShow() {
+      const array = generateRandomArray();
+      const first = array[0];
+      const last = array[array.length - 1];
+
+      document.getElementById('output').innerHTML = `
+        <strong>Generated Array:</strong> [${array.join(', ')}]<br>
+        <strong>First Element:</strong> ${first}<br>
+        <strong>Last Element:</strong> ${last}
+      `;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <style>
+    body {
+      background: #f2f6ff;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      max-width: 350px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #357bd8;
+    }
+
+    #result {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Age to Days Converter</h2>
+
+    <label for="age">Enter your age in years:</label>
+    <input type="number" id="age" placeholder="e.g. 25">
+
+    <button onclick="convertAgeToDays()">Convert to Days</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function convertAgeToDays() {
+      const age = document.getElementById('age').value;
+      const days = age * 365;
+      const resultDiv = document.getElementById('result');
+      
+      if (age && age >= 0) {
+        resultDiv.innerText = `Your age in days is ${days} days.`;
+      } else {
+        resultDiv.innerText = "Please enter a valid age.";
+      }
+    }
+  </script>
+
+</body>
+</html>
